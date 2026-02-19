@@ -7,6 +7,8 @@ const Projects = () => {
     const [selectedProject, setSelectedProject] = useState(null);
     const [selectedImage, setSelectedImage] = useState(null);
 
+    const imageBase = import.meta.env.BASE_URL;
+
     const projects = [
         {
             id: 1,
@@ -15,9 +17,9 @@ const Projects = () => {
             description: 'Application de monitoring et capture d\'écran avancée.',
             tech: ['Flutter', 'Laravel 11', 'MySQL'],
             images: [
-                '/src/assets/images/EyesON Dashboard.png',
-                '/src/assets/images/EyesON APP Settings – 1.png',
-                '/src/assets/images/EyesON – Screen Recorder.png'
+                `${imageBase}assets/images/EyesON Dashboard.png`,
+                `${imageBase}assets/images/EyesON APP Settings – 1.png`,
+                `${imageBase}assets/images/EyesON – Screen Recorder.png`
             ],
             link: null
         },
@@ -28,12 +30,12 @@ const Projects = () => {
             description: 'Système complet de gestion de projets clients et facturation.',
             tech: ['Laravel 11', 'MySQL'],
             images: [
-                '/src/assets/images/manageo - dashboard.png',
-                '/src/assets/images/Manageo -Gestion des  Projets clients.png',
-                '/src/assets/images/Manageo -  Formulaire Gestion Projets client.png',
-                '/src/assets/images/manageo -SUIVI DE projets .png',
-                '/src/assets/images/manageo -Login.png',
-                '/src/assets/images/manageo -Gestion desFournisseurs.png'
+                `${imageBase}assets/images/manageo - dashboard.png`,
+                `${imageBase}assets/images/Manageo -Gestion des  Projets clients.png`,
+                `${imageBase}assets/images/Manageo -  Formulaire Gestion Projets client.png`,
+                `${imageBase}assets/images/manageo -SUIVI DE projets .png`,
+                `${imageBase}assets/images/manageo -Login.png`,
+                `${imageBase}assets/images/manageo -Gestion desFournisseurs.png`
             ],
             link: null
         },
@@ -44,10 +46,10 @@ const Projects = () => {
             description: 'Gestion de stock et inventaire en temps réel pour entreprises.',
             tech: ['Laravel 11', 'MySQL'],
             images: [
-                '/src/assets/images/stock manager1.png',
-                '/src/assets/images/stock manager2.png',
-                '/src/assets/images/stock manager 3.png',
-                '/src/assets/images/stock manger 4.png'
+                `${imageBase}assets/images/stock manager1.png`,
+                `${imageBase}assets/images/stock manager2.png`,
+                `${imageBase}assets/images/stock manager 3.png`,
+                `${imageBase}assets/images/stock manger 4.png`
             ],
             link: null
         },
@@ -58,9 +60,9 @@ const Projects = () => {
             description: 'Solutions écologiques et durables pour l\'habitat moderne.',
             tech: ['React', 'Express', 'React Native'],
             images: [
-                '/src/assets/images/ekose.horizonservicessl.net_.png',
-                '/src/assets/images/ekose.horizonservicessl.net_ (1).png',
-                '/src/assets/images/ekose.horizonservicessl.net_ (2).png'
+                `${imageBase}assets/images/ekose.horizonservicessl.net_.png`,
+                `${imageBase}assets/images/ekose.horizonservicessl.net_ (1).png`,
+                `${imageBase}assets/images/ekose.horizonservicessl.net_ (2).png`
             ],
             link: 'https://ekose.horizonservicessl.net/'
         },
@@ -71,10 +73,10 @@ const Projects = () => {
             description: 'Plateforme de commande et gestion de produits alimentaires.',
             tech: ['React Native', 'Express'],
             images: [
-                '/src/assets/images/yamo-Liste produit.png',
-                '/src/assets/images/yamo commande.png',
-                '/src/assets/images/yamo-details commande.png',
-                '/src/assets/images/yamo-listes demandes.png'
+                `${imageBase}assets/images/yamo-Liste produit.png`,
+                `${imageBase}assets/images/yamo commande.png`,
+                `${imageBase}assets/images/yamo-details commande.png`,
+                `${imageBase}assets/images/yamo-listes demandes.png`
             ],
             link: null
         }

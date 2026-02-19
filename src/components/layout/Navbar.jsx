@@ -14,14 +14,20 @@ const Navbar = ({ activeSide, setActiveSide }) => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    const navLinks = [
-        { name: 'Expertise', href: '#expertise' },
-        { name: 'Arsenal', href: '#arsenal' },
-    ];
+    const navLinks = activeSide === 'dev'
+        ? [
+            { name: 'Expertise', href: '#expertise' },
+            { name: 'Arsenal', href: '#arsenal' },
+        ]
+        : [
+            { name: 'Missions', href: '#missions' },
+            { name: 'Méthodologie', href: '#methodology' },
+            { name: 'Arsenal', href: '#arsenal' },
+        ];
 
     return (
         <nav
-            className={`fixed top-0 left-0 right-0 z- border-amber-50 border- mb-20 transition-all duration-300 ${isScrolled ? 'bg-dark/95 backdrop-blur-xl py-4 shadow-2xl shadow-primary/5' : 'py-6 bg-transparent'}`}
+            className={`fixed top-0 left-0 right-0 z-50 border-b border-white/5 transition-all duration-300 ${isScrolled ? 'bg-dark/95 backdrop-blur-xl py-4 shadow-2xl shadow-primary/5' : 'py-6 bg-transparent'}`}
         >
             <div className="container-custom flex items-center justify-between">
                 <motion.div
