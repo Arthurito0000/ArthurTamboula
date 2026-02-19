@@ -12,17 +12,17 @@ const Footer = () => {
 
             <div className="container-custom">
                 <div className="flex flex-col items-center text-center">
-                    <h2 className="text-4xl md:text-6xl font-black mb-6">
+                    <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black mb-6">
                         Prêt à <span className="text-primary italic">collaborer ?</span>
                     </h2>
                     <p className="text-slate-400 max-w-xl mb-12">
                         Que ce soit pour un nouveau projet web ou pour renforcer votre posture de sécurité, je suis à votre écoute pour en discuter.
                     </p>
 
-                    <div className="flex flex-wrap justify-center gap-4 mb-20">
+                    <div className="flex flex-wrap justify-center gap-3 md:gap-4 mb-16 md:mb-20">
                         <a
                             href="mailto:arthurotamboula10@gmail.com"
-                            className="flex items-center gap-3 px-8 py-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all font-bold group"
+                            className="flex items-center gap-2 md:gap-3 px-6 py-3 md:px-8 md:py-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all font-bold group"
                         >
                             <Mail className="group-hover:text-primary transition-colors" />
                             Email

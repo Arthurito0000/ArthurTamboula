@@ -6,7 +6,7 @@ const Hero = ({ activeSide }) => {
     const isDev = activeSide === 'dev';
 
     return (
-        <section className="relative min-h-[90vh] flex items-center pt-24 overflow-hidden">
+        <section className=" pt-20 xl:pt-28 relative flex items-center pb-10 overflow-hidden">
             {/* Background Decor */}
             <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] -translate-y-1/2 -z-10 animate-pulse"></div>
             <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-secondary/10 rounded-full blur-[100px] translate-y-1/2 -z-10"></div>
@@ -19,7 +19,7 @@ const Hero = ({ activeSide }) => {
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.6 }}
                         >
-                            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-[11px] font-black tracking-wider mb-8">
+                            <div className=" mt-6 lg:mt-0 inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-[11px] font-black tracking-wider mb-8">
                                 <span className="relative flex h-2 w-2">
                                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                                     <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
@@ -29,28 +29,28 @@ const Hero = ({ activeSide }) => {
                             </div>
 
                             {/* Titre plafonné à xl:text-4xl — pas plus grand */}
-                            <h1 className="text-2xl md:text-3xl lg:text-4xl xl:text-4xl font-black mb-4 leading-[1.05]">
+                            <h1 className="text-2xl md:text-4xl lg:text-6xl xl:text-4xl 2xl:text-4xl font-black mb-4 leading-[1.05]">
                                 C'est <span className="text-primary italic">Arthur</span> <br />
                                 <span className="text-white">Tamboula</span>
                             </h1>
 
-                            <p className="text-base md:text-lg text-slate-400 max-w-xl mx-auto lg:mx-0 mb-10 leading-relaxed font-extralight italic">
+                            <p className="text-sm md:text-lg lg:text-xl text-slate-400 max-w-xl mx-auto lg:mx-0 mb-8 md:mb-10 leading-relaxed font-extralight italic">
                                 {isDev
                                     ? "L'art de transformer la complexité en expériences exceptionnelles. Je conçois des solutions numériques élégantes avec une attention méticuleuse portée aux détails et à la performance."
                                     : "Gardien des infrastructures numériques. Je surveille, analyse et neutralise les menaces pour garantir la résilience de vos systèmes d'information."}
                             </p>
 
-                            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-6">
+                            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 xl:gap-6">
                                 <a
                                     href={isDev ? "#expertise" : "#methodology"}
-                                    className="bg-primary hover:bg-primary/90 text-dark px-8 py-4 rounded-xl font-black flex items-center gap-3 transition-all hover:scale-105 active:scale-95 shadow-2xl shadow-primary/30 text-base"
+                                    className="bg-primary hover:bg-primary/90 text-dark px-4 py-2 md:px-6 md:py-3 rounded-xl font-black flex items-center gap-2 md:gap-3 transition-all hover:scale-105 active:scale-95 shadow-2xl shadow-primary/30 text-base md:text-md"
                                 >
                                     {isDev ? 'Voir mes projets' : 'Ma Méthodologie'}
                                     <ChevronRight size={18} />
                                 </a>
                                 <a
                                     href="#contact"
-                                    className="bg-white/5 hover:bg-white/10 border border-white/10 px-8 py-4 rounded-xl font-black flex items-center gap-2 transition-all text-base backdrop-blur-sm"
+                                    className="bg-white/5 hover:bg-white/10 border border-white/10 px-4 py-2 md:px-6 md:py-3 rounded-xl font-black flex items-center gap-2 transition-all text-base md:text-md backdrop-blur-sm"
                                 >
                                     Contactez-moi
                                 </a>
@@ -59,7 +59,7 @@ const Hero = ({ activeSide }) => {
                     </div>
 
                     {/* Image — plafonnée à max-w-xs sur lg, max-w-sm sur xl+ */}
-                    <div className="flex-1 w-full max-w-sm lg:max-w-xs xl:max-w-sm ml-auto px-4 md:px-6">
+                    <div className="flex-1 w-full max-w-xs sm:max-w-sm lg:max-w-md xl:max-w-lg 2xl:max-w-xl ml-auto px-4 md:px-6">
                         <motion.div
                             initial={{ opacity: 0, scale: 0.9, x: 50 }}
                             animate={{ opacity: 1, scale: 1, x: 0 }}

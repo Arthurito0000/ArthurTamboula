@@ -99,15 +99,15 @@ const CyberSections = () => {
                     <div className="absolute left-0 top-1/4 bottom-1/4 w-1.5 bg-primary blur-md opacity-30 group-hover:opacity-60"></div>
                     <div className="absolute top-0 right-0 w-48 h-48 bg-primary/5 blur-[80px]"></div>
 
-                    <div className="flex flex-col sm:flex-row gap-6 md:gap-10 items-center">
+                    <div className="flex flex-col sm:flex-row gap-4 md:gap-6 lg:gap-10 items-center">
                         {/* Logo Vinxira — taille réduite */}
-                        <div className="w-full sm:w-28 md:w-36 aspect-square bg-[#0a0f18] rounded-2xl flex items-center justify-center border border-white/5 shadow-inner shrink-0">
-                            <span className="text-2xl md:text-3xl font-black text-primary select-none tracking-widest opacity-80">VIN<span className="text-primary/50">XIRA</span></span>
+                        <div className="w-full sm:w-24 md:w-28 lg:w-32 xl:w-36 aspect-square bg-[#0a0f18] rounded-2xl flex items-center justify-center border border-white/5 shadow-inner shrink-0">
+                            <span className="text-xl md:text-2xl lg:text-3xl font-black text-primary select-none tracking-widest opacity-80">VIN<span className="text-primary/50">XIRA</span></span>
                         </div>
 
                         <div className="flex-1 space-y-4">
-                            <div className="flex items-center gap-4 flex-wrap">
-                                <h2 className="text-xl font-black text-white">Analyste SOC</h2>
+                            <div className="flex items-center gap-3 md:gap-4 flex-wrap">
+                                <h2 className="text-lg md:text-xl lg:text-2xl font-black text-white">Analyste SOC</h2>
                                 <span className="bg-primary/20 text-primary px-3 py-1 rounded-lg text-xs font-black uppercase tracking-widest border border-primary/20">
                                     EN POSTE
                                 </span>
@@ -194,14 +194,14 @@ const CyberSections = () => {
                 className="container-custom"
             >
                 <div className="text-center mb-12">
-                    <h2 className="text-2xl md:text-3xl font-black mb-2">Ma <span className="text-primary italic">Méthodologie</span></h2>
+                    <h2 className="text-2xl md:text-3xl lg:text-4xl font-black mb-2">Ma <span className="text-primary italic">Méthodologie</span></h2>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
                     {methodology.map((m, idx) => (
-                        <div key={idx} className="relative p-8 glass rounded-3xl overflow-hidden group">
-                            <span className="absolute -top-3 -right-1 text-6xl font-black text-white/5">{m.nr}</span>
-                            <h3 className="text-base font-bold mb-3 group-hover:text-primary transition-colors">{m.title}</h3>
+                        <div key={idx} className="relative p-6 md:p-8 glass rounded-3xl overflow-hidden group">
+                            <span className="absolute -top-3 -right-1 text-5xl md:text-6xl font-black text-white/5">{m.nr}</span>
+                            <h3 className="text-base md:text-lg font-bold mb-3 group-hover:text-primary transition-colors">{m.title}</h3>
                             <p className="text-slate-400 text-sm leading-relaxed">{m.desc}</p>
                         </div>
                     ))}
@@ -217,12 +217,12 @@ const CyberSections = () => {
                 className="container-custom"
             >
                 <div className="text-center mb-10">
-                    <h2 className="text-2xl md:text-3xl font-black">Mon <span className="text-primary italic">Arsenal</span></h2>
+                    <h2 className="text-2xl md:text-3xl lg:text-4xl font-black">Mon <span className="text-primary italic">Arsenal</span></h2>
                 </div>
 
-                <div className="flex flex-wrap items-center justify-center gap-4 max-w-5xl mx-auto">
+                <div className="flex flex-wrap items-center justify-center gap-3 md:gap-4 max-w-5xl mx-auto">
                     {arsenal.map((tool, idx) => (
-                        <span key={idx} className="px-6 py-3 rounded-xl bg-slate-900/30 border border-white/5 text-slate-300 font-bold text-sm hover:border-primary/30 hover:text-primary transition-all cursor-default hover:bg-primary/5 shadow-lg">
+                        <span key={idx} className="px-4 py-2 md:px-6 md:py-3 rounded-xl bg-slate-900/30 border border-white/5 text-slate-300 font-bold text-xs md:text-sm hover:border-primary/30 hover:text-primary transition-all cursor-default hover:bg-primary/5 shadow-lg">
                             {tool}
                         </span>
                     ))}

@@ -87,7 +87,7 @@ const Projects = () => {
             <div className="container-custom">
                 <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
                     <div>
-                        <h2 className="text-2xl md:text-3xl font-black mb-2">Derniers <span className="text-gradient">Projets</span></h2>
+                        <h2 className="text-2xl md:text-3xl lg:text-4xl font-black mb-2">Derniers <span className="text-gradient">Projets</span></h2>
                         <p className="text-slate-400 text-sm">Exploration de solutions innovantes et performantes.</p>
                     </div>
 
@@ -109,7 +109,7 @@ const Projects = () => {
                     </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
                     {filteredProjects.map((project) => (
                         <motion.div
                             key={project.id}
@@ -142,8 +142,8 @@ const Projects = () => {
                                 </div>
                             </div>
 
-                            <div className="p-5 flex-1 flex flex-col">
-                                <h3 className="text-lg font-bold mb-2 group-hover:text-primary transition-colors">{project.name}</h3>
+                            <div className="p-4 md:p-5 flex-1 flex flex-col">
+                                <h3 className="text-base md:text-lg font-bold mb-2 group-hover:text-primary transition-colors">{project.name}</h3>
                                 <p className="text-slate-400 text-xs mb-4 line-clamp-2">{project.description}</p>
 
                                 <div className="flex flex-wrap gap-2 mb-6">

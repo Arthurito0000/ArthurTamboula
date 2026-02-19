@@ -21,18 +21,18 @@ const Navbar = ({ activeSide, setActiveSide }) => {
 
     return (
         <nav
-            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-dark/95 backdrop-blur-xl py-4 shadow-2xl shadow-primary/5' : 'py-6 bg-transparent'}`}
+            className={`fixed top-0 left-0 right-0 z- border-amber-50 border- mb-20 transition-all duration-300 ${isScrolled ? 'bg-dark/95 backdrop-blur-xl py-4 shadow-2xl shadow-primary/5' : 'py-6 bg-transparent'}`}
         >
             <div className="container-custom flex items-center justify-between">
                 <motion.div
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    className="flex items-center gap-2"
+                    className="flex items-center gap-2 md:gap-3"
                 >
-                    <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-primary to-secondary flex items-center justify-center text-dark shadow-lg shadow-primary/20">
+                    <div className="w-8 h-8 md:w-10 md:h-10 rounded-xl bg-gradient-to-tr from-primary to-secondary flex items-center justify-center text-dark shadow-lg shadow-primary/20">
                         <Rocket size={20} />
                     </div>
-                    <span className="text-xl font-bold tracking-tighter">
+                    <span className="text-lg md:text-xl font-bold tracking-tighter">
                         ARTHUR <span className="text-primary font-black">TAMBOULA</span>
                     </span>
                 </motion.div>
