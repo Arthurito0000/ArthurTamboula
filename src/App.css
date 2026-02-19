@@ -1,0 +1,110 @@
+/* ================================
+   GLOBAL RESET (CRITIQUE)
+================================ */
+html,
+body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* ================================
+   ROOT FIX (Vite / React)
+================================ */
+#root {
+  width: 100%;
+  margin: 0;
+  text-align: center;
+  overflow-x: hidden;
+  /* empêche scroll horizontal */
+}
+
+/* ================================
+   CONTAINER RESPONSIVE (FLUIDE)
+================================ */
+.container-custom {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+
+  /* padding fluide */
+  padding-left: clamp(1.5rem, 3vw, 5rem);
+  padding-right: clamp(1.5rem, 3vw, 5rem);
+
+  /* largeur fluide desktop & ultra-wide */
+  max-width: clamp(1024px, 85vw, 1700px);
+}
+
+/* ================================
+   SECTION PADDING
+================================ */
+.section-padding {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+
+/* ================================
+   FULL-BLEED HELPER (BACKGROUND)
+================================ */
+.full-bleed {
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  width: 100vw;
+}
+
+/* ================================
+   SECTION SAFETY
+================================ */
+section {
+  width: 100%;
+  position: relative;
+}
+
+/* ================================
+   LOGO / VITE DEMO (OPTIONNEL)
+================================ */
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+/* ================================
+   CARDS / TEXT
+================================ */
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
