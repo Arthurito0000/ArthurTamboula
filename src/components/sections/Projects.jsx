@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ExternalLink, Eye, ChevronRight, LayoutGrid, Calendar, X } from 'lucide-react';
+import { ExternalLink, Eye, ChevronRight, LayoutGrid, Calendar, X, Download, ChevronLeft } from 'lucide-react';
 
 const Projects = () => {
     const [filter, setFilter] = useState('realises');
@@ -8,6 +8,24 @@ const Projects = () => {
     const [selectedImage, setSelectedImage] = useState(null);
 
     const imageBase = import.meta.env.BASE_URL;
+
+    const [cardImageIndices, setCardImageIndices] = useState({});
+
+    const handleNextImage = (e, projectId, totalImages) => {
+        e.stopPropagation();
+        setCardImageIndices(prev => ({
+            ...prev,
+            [projectId]: ((prev[projectId] || 0) + 1) % totalImages
+        }));
+    };
+
+    const handlePrevImage = (e, projectId, totalImages) => {
+        e.stopPropagation();
+        setCardImageIndices(prev => ({
+            ...prev,
+            [projectId]: ((prev[projectId] || 0) - 1 + totalImages) % totalImages
+        }));
+    };
 
     const projects = [
         {
@@ -112,68 +130,102 @@ const Projects = () => {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
-                    {filteredProjects.map((project) => (
-                        <motion.div
-                            key={project.id}
-                            layout
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            transition={{ duration: 0.4 }}
-                            className="group glass rounded-2xl overflow-hidden flex flex-col hover:border-primary/30 transition-all hover:translate-y-[-4px] bg-slate-800/20"
-                        >
-                            <div className="relative aspect-video overflow-hidden bg-slate-800/50">
-                                {project.images.length > 0 ? (
-                                    <img
-                                        src={project.images[0]}
-                                        alt={project.name}
-                                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                                    />
-                                ) : (
-                                    <div className="w-full h-full flex items-center justify-center text-slate-600">
-                                        <LayoutGrid size={48} />
-                                    </div>
-                                )}
-                                <div className="absolute inset-0 bg-gradient-to-t from-dark/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
-                                    <button
-                                        onClick={() => setSelectedProject(project)}
-                                        className="bg-white text-dark w-full py-2.5 rounded-xl font-bold flex items-center justify-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-transform text-sm"
-                                    >
-                                        <Eye size={16} />
-                                        Voir les captures
-                                    </button>
-                                </div>
-                            </div>
+                    {filteredProjects.map((project) => {
+                        const currentImgIdx = cardImageIndices[project.id] || 0;
+                        return (
+                            <motion.div
+                                key={project.id}
+                                layout
+                                initial={{ opacity: 0, scale: 0.9 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                transition={{ duration: 0.4 }}
+                                className="group glass rounded-2xl overflow-hidden flex flex-col hover:border-primary/30 transition-all hover:translate-y-[-4px] bg-slate-800/20"
+                            >
+                                <div className="relative aspect-video overflow-hidden bg-slate-800/50">
+                                    {project.images.length > 0 ? (
+                                        <>
+                                            <AnimatePresence mode="wait">
+                                                <motion.img
+                                                    key={currentImgIdx}
+                                                    src={project.images[currentImgIdx]}
+                                                    alt={project.name}
+                                                    initial={{ opacity: 0 }}
+                                                    animate={{ opacity: 1 }}
+                                                    exit={{ opacity: 0 }}
+                                                    className="w-full h-full object-cover"
+                                                />
+                                            </AnimatePresence>
 
-                            <div className="p-4 md:p-5 flex-1 flex flex-col">
-                                <h3 className="text-base md:text-lg font-bold mb-2 group-hover:text-primary transition-colors">{project.name}</h3>
-                                <p className="text-slate-400 text-xs mb-4 line-clamp-2">{project.description}</p>
+                                            {/* Navigation Arrows on Card */}
+                                            {project.images.length > 1 && (
+                                                <div className="absolute inset-0 flex items-center justify-between px-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                                                    <button
+                                                        onClick={(e) => handlePrevImage(e, project.id, project.images.length)}
+                                                        className="w-8 h-8 rounded-full bg-dark/60 text-white flex items-center justify-center hover:bg-primary hover:text-dark transition-all"
+                                                    >
+                                                        <ChevronLeft size={16} />
+                                                    </button>
+                                                    <button
+                                                        onClick={(e) => handleNextImage(e, project.id, project.images.length)}
+                                                        className="w-8 h-8 rounded-full bg-dark/60 text-white flex items-center justify-center hover:bg-primary hover:text-dark transition-all"
+                                                    >
+                                                        <ChevronRight size={16} />
+                                                    </button>
+                                                </div>
+                                            )}
 
-                                <div className="flex flex-wrap gap-2 mb-6">
-                                    {project.tech.map(t => (
-                                        <span key={t} className="text-[9px] font-bold uppercase tracking-wider px-2 py-1 rounded-md bg-white/5 border border-white/10 text-slate-300">
-                                            {t}
-                                        </span>
-                                    ))}
-                                </div>
-
-                                <div className="mt-auto flex items-center justify-between">
-                                    {project.link && (
-                                        <a
-                                            href={project.link}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="text-primary text-[11px] font-bold flex items-center gap-1 hover:underline"
-                                        >
-                                            Visiter <ExternalLink size={12} />
-                                        </a>
+                                            {/* Counter Badge */}
+                                            <div className="absolute top-2 right-2 px-2 py-1 rounded-md bg-dark/60 backdrop-blur-md text-[10px] font-bold text-white border border-white/10">
+                                                {currentImgIdx + 1} / {project.images.length}
+                                            </div>
+                                        </>
+                                    ) : (
+                                        <div className="w-full h-full flex items-center justify-center text-slate-600">
+                                            <LayoutGrid size={48} />
+                                        </div>
                                     )}
-                                    <div className="text-[9px] text-slate-500 font-bold uppercase tracking-widest">
-                                        {project.category === 'realises' ? 'Terminé' : 'En développement'}
+                                    <div className="absolute inset-0 bg-linear-to-t from-dark/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+                                        <button
+                                            onClick={() => setSelectedProject(project)}
+                                            className="bg-white text-dark w-full py-2.5 rounded-xl font-bold flex items-center justify-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-transform text-sm"
+                                        >
+                                            <Eye size={16} />
+                                            Voir la galerie
+                                        </button>
                                     </div>
                                 </div>
-                            </div>
-                        </motion.div>
-                    ))}
+
+                                <div className="p-4 md:p-5 flex-1 flex flex-col">
+                                    <h3 className="text-base md:text-lg font-bold mb-2 group-hover:text-primary transition-colors">{project.name}</h3>
+                                    <p className="text-slate-400 text-xs mb-4 line-clamp-2">{project.description}</p>
+
+                                    <div className="flex flex-wrap gap-2 mb-6">
+                                        {project.tech.map(t => (
+                                            <span key={t} className="text-[9px] font-bold uppercase tracking-wider px-2 py-1 rounded-md bg-white/5 border border-white/10 text-slate-300">
+                                                {t}
+                                            </span>
+                                        ))}
+                                    </div>
+
+                                    <div className="mt-auto flex items-center justify-between">
+                                        {project.link && (
+                                            <a
+                                                href={project.link}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="text-primary text-[11px] font-bold flex items-center gap-1 hover:underline"
+                                            >
+                                                Visiter <ExternalLink size={12} />
+                                            </a>
+                                        )}
+                                        <div className="text-[9px] text-slate-500 font-bold uppercase tracking-widest">
+                                            {project.category === 'realises' ? 'Terminé' : 'En développement'}
+                                        </div>
+                                    </div>
+                                </div>
+                            </motion.div>
+                        );
+                    })}
                 </div>
             </div>
 
@@ -184,7 +236,7 @@ const Projects = () => {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-8"
+                        className="fixed inset-0 z-100 flex items-center justify-center p-4 md:p-8"
                     >
                         <div className="absolute inset-0 bg-dark/95 backdrop-blur-sm" onClick={() => setSelectedProject(null)}></div>
 
@@ -237,15 +289,30 @@ const Projects = () => {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        className="fixed inset-0 z-[110] flex items-center justify-center bg-dark/98 backdrop-blur-xl"
+                        className="fixed inset-0 z-110 flex items-center justify-center bg-dark/98 backdrop-blur-xl"
                     >
-                        <div className="absolute top-6 left-6 z-10">
+                        <div className="absolute top-6 left-6 z-10 flex gap-4">
                             <button
                                 onClick={() => setSelectedImage(null)}
                                 className="flex items-center gap-2 px-4 py-2 rounded-xl glass hover:bg-primary hover:text-dark transition-all font-bold text-sm"
                             >
-                                <ChevronRight size={18} className="rotate-180" />
+                                <ChevronLeft size={18} />
                                 Retour à la galerie
+                            </button>
+
+                            <button
+                                onClick={() => {
+                                    const link = document.createElement('a');
+                                    link.href = selectedImage;
+                                    link.download = selectedImage.split('/').pop() || 'download.png';
+                                    document.body.appendChild(link);
+                                    link.click();
+                                    document.body.removeChild(link);
+                                }}
+                                className="flex items-center gap-2 px-4 py-2 rounded-xl glass hover:bg-green-500 hover:text-white transition-all font-bold text-sm border border-green-500/20"
+                            >
+                                <Download size={18} />
+                                Télécharger
                             </button>
                         </div>
 

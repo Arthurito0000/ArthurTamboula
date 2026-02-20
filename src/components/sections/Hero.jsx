@@ -6,7 +6,7 @@ const Hero = ({ activeSide }) => {
     const isDev = activeSide === 'dev';
 
     return (
-        <section className=" pt-20 xl:pt-28 relative flex items-center pb-10 overflow-hidden">
+        <section className=" pt-20 lg:pt-24 xl:pt-28 relative flex items-center pb-10 overflow-hidden">
             {/* Background Decor */}
             <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] -translate-y-1/2 -z-10 animate-pulse"></div>
             <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-secondary/10 rounded-full blur-[100px] translate-y-1/2 -z-10"></div>
@@ -29,7 +29,7 @@ const Hero = ({ activeSide }) => {
                             </div>
 
                             {/* Titre plafonné à xl:text-4xl — pas plus grand */}
-                            <h1 className="text-2xl md:text-4xl lg:text-6xl xl:text-4xl 2xl:text-4xl font-black mb-4 leading-[1.05]">
+                            <h1 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-5xl font-black mb-4 leading-[1.05]">
                                 C'est <span className="text-primary italic">Arthur</span> <br />
                                 <span className="text-white">Tamboula</span>
                             </h1>
