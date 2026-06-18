@@ -259,7 +259,7 @@ const Projects = () => {
                             exit={{ scale: 0.9, opacity: 0 }}
                             className="relative w-full max-w-6xl max-h-[90vh] glass rounded-3xl overflow-hidden flex flex-col shadow-2xl border border-white/10"
                         >
-                            <div className="flex items-center justify-between p-6 border-b border-white/5 bg-slate-900/50 backdrop-blur-md">
+                            <div className="flex items-start justify-between p-6 border-b border-white/5 bg-slate-900/50 backdrop-blur-md sticky top-0 z-40">
                                 <div className="max-w-3xl">
                                     <h3 className="text-xl font-bold">{selectedProject.name} <span className="text-primary italic">Gallery</span></h3>
                                     {selectedProject.description && (
