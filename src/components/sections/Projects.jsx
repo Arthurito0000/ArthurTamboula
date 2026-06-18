@@ -98,6 +98,16 @@ const Projects = () => {
             ],
             link: null
         }
+        ,
+        {
+            id: 6,
+            name: 'ADFuelCard pro',
+            category: 'encours',
+            description: 'Système de gestion des bons de carburant : numérisation des bons papier, paiement par carte NFC et application mobile pour gérer les transactions et validations.',
+            tech: ['.NET', 'Angular'],
+            images: [],
+            link: null
+        }
     ];
 
     const filteredProjects = projects.filter(p => p.category === filter);
@@ -139,7 +149,7 @@ const Projects = () => {
                                 initial={{ opacity: 0, scale: 0.9 }}
                                 animate={{ opacity: 1, scale: 1 }}
                                 transition={{ duration: 0.4 }}
-                                className="group glass rounded-2xl overflow-hidden flex flex-col hover:border-primary/30 transition-all hover:translate-y-[-4px] bg-slate-800/20"
+                                className="group glass rounded-2xl overflow-hidden flex flex-col hover:border-primary/30 transition-all hover:-translate-y-1 bg-slate-800/20"
                             >
                                 <div className="relative aspect-video overflow-hidden bg-slate-800/50">
                                     {project.images.length > 0 ? (
