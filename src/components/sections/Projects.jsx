@@ -260,7 +260,24 @@ const Projects = () => {
                             className="relative w-full max-w-6xl max-h-[90vh] glass rounded-3xl overflow-hidden flex flex-col shadow-2xl border border-white/10"
                         >
                             <div className="flex items-center justify-between p-6 border-b border-white/5 bg-slate-900/50 backdrop-blur-md">
-                                <h3 className="text-xl font-bold">{selectedProject.name} <span className="text-primary italic">Gallery</span></h3>
+                                <div className="max-w-3xl">
+                                    <h3 className="text-xl font-bold">{selectedProject.name} <span className="text-primary italic">Gallery</span></h3>
+                                    {selectedProject.description && (
+                                        <p className="text-slate-300 text-sm mt-2">
+                                            {selectedProject.description}
+                                        </p>
+                                    )}
+                                    {selectedProject.tech && selectedProject.tech.length > 0 && (
+                                        <div className="mt-3 flex flex-wrap gap-2">
+                                            {selectedProject.tech.map(t => (
+                                                <span key={t} className="text-[11px] font-bold uppercase tracking-wider px-2 py-1 rounded-md bg-white/5 border border-white/10 text-slate-300">
+                                                    {t}
+                                                </span>
+                                            ))}
+                                        </div>
+                                    )}
+                                </div>
+
                                 <button
                                     onClick={() => setSelectedProject(null)}
                                     className="w-10 h-10 rounded-full bg-red-500/10 text-red-500 hover:bg-red-500 hover:text-white transition-all flex items-center justify-center border border-red-500/20"
