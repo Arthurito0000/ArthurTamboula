@@ -171,16 +171,20 @@ const Projects = () => {
 
                                             {/* Navigation Arrows on Card */}
                                             {project.images.length > 1 && (
-                                                <div className="absolute inset-0 flex items-center justify-between px-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                                                <div className="absolute inset-0 flex items-center justify-between px-2 opacity-0 group-hover:opacity-100 transition-opacity z-30 pointer-events-auto">
                                                     <button
+                                                        type="button"
+                                                        aria-label="Image précédente"
                                                         onClick={(e) => handlePrevImage(e, project.id, project.images.length)}
-                                                        className="w-8 h-8 rounded-full bg-dark/60 text-white flex items-center justify-center hover:bg-primary hover:text-dark transition-all"
+                                                        className="w-8 h-8 rounded-full bg-dark/60 text-white flex items-center justify-center hover:bg-primary hover:text-dark transition-all pointer-events-auto z-40"
                                                     >
                                                         <ChevronLeft size={16} />
                                                     </button>
                                                     <button
+                                                        type="button"
+                                                        aria-label="Image suivante"
                                                         onClick={(e) => handleNextImage(e, project.id, project.images.length)}
-                                                        className="w-8 h-8 rounded-full bg-dark/60 text-white flex items-center justify-center hover:bg-primary hover:text-dark transition-all"
+                                                        className="w-8 h-8 rounded-full bg-dark/60 text-white flex items-center justify-center hover:bg-primary hover:text-dark transition-all pointer-events-auto z-40"
                                                     >
                                                         <ChevronRight size={16} />
                                                     </button>
