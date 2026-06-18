@@ -105,7 +105,10 @@ const Projects = () => {
             category: 'encours',
             description: 'Système de gestion des bons de carburant : numérisation des bons papier, paiement par carte NFC et application mobile pour gérer les transactions et validations.',
             tech: ['.NET', 'Angular'],
-            images: [],
+            images: [
+                `${imageBase}assets/images/adfuelcard-dashboard.png`,
+                `${imageBase}assets/images/adfuelcard-login.png`
+            ],
             link: null
         }
     ];
